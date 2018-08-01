@@ -1,0 +1,18 @@
+[
+    
+    {
+        "vname" : "_creation_block",
+        "type" : "BNum",
+        "value" : "0"
+    },
+
+   
+    {
+        "vname" : "ope",
+        "type" : "String", 
+        "value" : "Mul"
+    }
+    
+    ]
+    
+   

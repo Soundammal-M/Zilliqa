@@ -1,0 +1,17 @@
+{
+    "_tag": "Multiplication",
+    "_amount": "0",
+    "_sender" : "0x1234567890123456789012345678901234567890",
+    "params": [
+      {
+        "vname": "a",
+        "type": "Int32",
+        "value": "10"
+      } ,
+      {
+        "vname": "b",
+        "type": "Int32",
+        "value": "20"
+      } 
+   ]
+}

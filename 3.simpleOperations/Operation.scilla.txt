@@ -1,0 +1,76 @@
+library Operation 
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+  
+ let ad  = Int32 1
+ let subb  = Int32 2
+ let mull = Int32 3
+ 
+ 
+
+  
+  contract Operation
+  (ope:String)
+  
+  
+  transition Addition(a : Int32, b : Int32)
+  addr = "Add";
+  oper = builtin eq ope addr;
+  
+  match oper with
+      |True => 
+          c  = builtin add a b;
+          m = {_tag:"Add";_recipient:_sender;_amount:Uint128 2; code : ad; value : c};
+          msgs = one_msg m;
+          send msgs
+        
+      |False =>
+          m = {_tag:"Error";_recipient:_sender;_amount:Uint128 2; code : ad};
+          msgs = one_msg m;
+          send msgs
+          
+    end 
+    end
+   
+   
+   
+    transition Subtraction(a : Int32, b : Int32)
+    subt = "Sub";
+    oper1 = builtin eq ope subt;
+    
+     match oper1 with
+      |True => 
+          c1  = builtin sub a b;
+          m2 = {_tag:"Sub";_recipient:_sender;_amount:Uint128 2; code : subb; value : c1};
+          msgs2 = one_msg m2;
+          send msgs2
+          
+       |False =>
+           m2 = {_tag:"Error";_recipient:_sender;_amount:Uint128 2; code : subb};
+          msgs2 = one_msg m2;
+          send msgs2
+    end
+    end
+    
+    
+     transition Multiplication(a : Int32, b : Int32)
+    mulll = "Mul";
+    oper2 = builtin eq ope mulll;
+    
+     match oper2 with
+      |True => 
+          c2  = builtin mul a b;
+          m3 = {_tag:"Sub";_recipient:_sender;_amount:Uint128 2; code : mull; value : c2};
+          msgs3 = one_msg m3;
+          send msgs3
+          
+       |False =>
+           m3 = {_tag:"Error";_recipient:_sender;_amount:Uint128 2; code : mull};
+          msgs3 = one_msg m3;
+          send msgs3
+    end
+    end
+    
