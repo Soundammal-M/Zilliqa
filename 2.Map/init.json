@@ -1,0 +1,19 @@
+[
+   
+    {
+        "vname" : "name1",
+        "type" : "String",
+        "value" : "sandhiya"
+    },
+    {
+        "vname" : "age1",
+        "type" : "Uint128",
+        "value" : "24"
+    },
+    {
+         "vname" : "_creation_block",
+        "type" : "BNum",
+        "value" : "1"
+        
+    }
+]

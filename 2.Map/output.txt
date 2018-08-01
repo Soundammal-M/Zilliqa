@@ -1,0 +1,17 @@
+ Object
+ message: Object
+_tag:  "Main"
+_amount:  "0"
+_accepted:  "false"
+_recipient:  "0x12345678901234567890123456789012345678cd"
+ params: Array [1]
+ 0: Object {vname:"bal", type:"Uint128", value:"24"}
+ states: Array [2]
+ 0: Object
+vname:  "_balance"
+type:  "Uint128"
+value:  "0"
+ 1: Object
+vname:  "balances"
+type:  "Map (String) (Uint128)"
+ value: Array [1] [Object]

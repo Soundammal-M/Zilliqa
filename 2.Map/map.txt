@@ -1,0 +1,31 @@
+(
+library FungibleToken
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+ contract Token
+ (name1: String,age1 :Uint128)
+ 
+  field balances : Map String Uint128 =
+  let m = Emp String Uint128 in
+    builtin put m name1 age1
+
+
+   transition ss (name : String)
+    bl <- balances;
+  
+  val = builtin get bl name;
+  match val with
+  | Some v =>
+    msg = { _tag : "Main"; _recipient : _sender; _amount : Uint128 0; bal : v };
+    msgs = one_msg msg;
+    send msgs
+  | None =>
+    msg = { _tag : "Main"; _recipient : _sender; _amount : Uint128 0; bal : Uint128 0 };
+    msgs = one_msg msg;
+    send msgs
+  end
+end
