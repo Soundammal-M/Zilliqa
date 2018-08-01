@@ -1,0 +1,113 @@
+library Token
+
+ let one_msg =
+    fun(msg: Message)=>
+    let nil_msg = Nil {Message} in
+    Cons {Message} msg nil_msg
+    
+    
+    let lessthan_ck =
+    fun (a : Uint128) => fun (b : Uint128) =>
+    let x = builtin lt a b in
+    match x with
+    | True => True
+    | False =>
+      let y = builtin eq a b in
+      match y with
+      | True => True
+      | False => False
+      end
+      end
+      
+     
+ contract Token
+ (owner : Address,totalToken : Uint128)
+ 
+ field balance : Map Address Uint128 =
+  let m = Emp Address Uint128 in
+    builtin put m owner totalToken
+ 
+ 
+ 
+
+ transition balanceOf (_owner : Address)
+  s <- balance;
+   val = builtin get s _owner;
+ 
+  match val with
+  | Some s1 =>
+    msg = { _tag : "Main"; _recipient : _sender; _amount : Uint128 0; balance : s1 };
+    msgs = one_msg msg;
+    send msgs
+  | None =>
+    msg = { _tag : "Main"; _recipient : _sender; _amount : Uint128 0; bal : Uint128 0 };
+    msgs = one_msg msg;
+    send msgs
+  end
+end
+
+transition totalsupply()
+ 
+  msg = {_tag :"Main"; _recipient :_sender; _amount :Uint128 0;totalToken :totalToken };
+ msgs = one_msg msg;
+ send msgs
+ end
+ 
+ 
+ 
+ 
+ 
+ 
+ transition transferr (_to:Address, amount:Uint128)
+ b <-balance;
+ s_amnt1 = builtin get b _sender;
+
+ match s_amnt1 with
+    | Some  s1=>
+             new_s_amnt = builtin sub s1 amount;
+             s_amnt = builtin put b _sender new_s_amnt;
+             balance:=s_amnt;
+                   b1 <- balance;
+             to_bal = builtin get b1 _to;
+        
+         match to_bal with
+             | Some t1 =>
+                  t2 =builtin add t1  amount;
+                  b2=builtin put b1 _to t2;
+                  balance:=b2;
+                  b3<- balance;
+                  t3 =builtin get b3 _to;
+                  
+                  
+                match t3 with
+                 | Some t31 =>
+                      
+                   msg={_tag:"bal add";_recipient:_sender;_amount:Uint128 0};
+                   msgs=one_msg msg;
+                   send msgs
+                   
+                 
+                         
+            | None=>
+                  t4 =builtin put b3 _to amount;
+                  balance:=t4;
+                  b4 <-balance;
+                  t5 =builtin get b4 _to;
+                
+                
+                match t5 with
+               | Some t51 =>
+                  
+                  msg={_tag:"bal empty";_recipient:_sender;_amount:Uint128 0};
+                  msgs=one_msg msg;
+                 send msgs
+                 
+                 
+     
+                 
+                end 
+               end
+              end
+             end
+             end
+             

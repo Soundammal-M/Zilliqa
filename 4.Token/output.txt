@@ -1,0 +1,26 @@
+Object
+ message: Object
+_tag:  "To balance 1"
+_amount:  "0"
+_accepted:  "false"
+_recipient: "0x12345678901234567890123456789012345678cd"
+ params: Array [1]
+ 0: Object
+vname:  "value"
+type:  "Uint128"
+value:  "900"
+ states: Array [2]
+ 0: Object
+vname:  "_balance"
+type:  "Uint128"
+value:  "0"
+ 1: Object
+vname:  "balance"
+type:  "Map (Address) (Uint128)"
+ value: Array [2]
+ 0: Object
+key: "0x1234567890123456789012345678901234567890"
+val:  "900"
+ 1: Object
+key: "0x12345678901234567890123456789012345678cd"
+val:  "9100"
