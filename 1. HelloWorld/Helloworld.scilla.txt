@@ -1,0 +1,30 @@
+library  H
+
+let one_msg = 
+  fun (msg : Message) => 
+  let nil_msg = Nil {Message} in
+  Cons {Message} msg nil_msg
+
+
+let not_owner  = Int32 1
+let set_string =  Int32 2
+
+contract Hell
+(owner:Address)
+
+field   g : String = ""
+
+transition  setString (msg:String)
+ownerchecking = builtin eq  owner _sender;
+match ownerchecking  with 
+|False =>
+m ={ _tag : "False_Tag"; _recipient: _sender; _amount : Uint128 0; code:not_owner};
+msgs = one_msg  m;
+send msgs
+|True =>
+g :=msg;
+m ={ _tag : "True_Tag"; _recipient: _sender; _amount : Uint128 0; code:set_string};
+msgs = one_msg  m;
+send msgs
+end
+end

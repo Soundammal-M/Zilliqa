@@ -1,0 +1,15 @@
+{
+    "_tag": "setString",
+    "_amount": "6",
+    "_sender" : "0x1234567890123456789012345678901234567890",
+    "params": [
+      {
+        "vname": "msg",
+        "type": "String",
+        "value": "Hello World"
+      } 
+       
+       
+      
+   ]
+}

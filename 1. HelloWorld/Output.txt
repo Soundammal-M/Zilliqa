@@ -1,0 +1,20 @@
+Object
+ message: Object
+_tag:  "True_Tag"
+_amount:  "0"
+_accepted:  "false"
+_recipient:  "0x1234567890123456789012345678901234567890"
+ params: Array [1]
+ 0: Object
+vname:  "code"
+type:  "Int32"
+value:  "2"
+ states: Array [2]
+ 0: Object
+vname:  "_balance"
+type:  "Uint128"
+value:  "10"
+ 1: Object
+vname:  "g"
+type:  "String"
+value:  "Hello World"
