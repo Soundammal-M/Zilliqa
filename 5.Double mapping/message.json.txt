@@ -1,0 +1,12 @@
+{
+    "_tag": "_get",
+    "_amount": "0",
+    "_sender" : "0x1234567890123456789012345678901234567890",
+    "params": [
+      {
+        "vname": "name2",
+        "type": "String",
+        "value": "sra"
+      }
+   ]
+}

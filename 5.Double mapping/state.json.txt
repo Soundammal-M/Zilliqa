@@ -1,0 +1,22 @@
+[
+  {
+    "vname": "_balance",
+    "type": "Uint128",
+    "value": "0"
+  },
+  {
+    "vname": "mm",
+    "type": "Map (String) (Map (String) (Uint128))",
+    "value": [
+      {
+        "key": "sra",
+        "val": [
+          {
+            "key": "sandhiya",
+            "val": "23"
+          }
+        ]
+      }
+    ]
+  }
+]
